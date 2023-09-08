@@ -1,5 +1,5 @@
-interface Evento {
-  id?: string;
+interface EventoProps {
+  id: number;
   title: string;
   datetime: {
     start: string;
@@ -8,11 +8,21 @@ interface Evento {
 }
 
 interface EventListProps {
-  events: Evento[];
+  events: EventoProps[];
 }
 
 interface EventDayProps {
     day: number
-    events: Evento[]
+    events: EventoProps[]
     className?: string
+    color?: string
+}
+
+
+interface DayGridProps {
+    id: number | null,
+    title: string | null,
+    rowSpan?: number,
+    colSpan?: number
+    color?: string
 }

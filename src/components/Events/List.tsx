@@ -10,8 +10,9 @@ const EventList = ({ events, ...props }: EventListProps) => {
             acc[day] = [event]
         }
         return acc
-    }, {} as Record<number, Evento[]>)
+    }, {} as Record<number, EventoProps[]>)
 
+    const dayColors = ["bg-cyan-700", "bg-[#CE875A]", "bg-orange-700"];
   return (
     <div className="h-[71vh] mt-20 flex flex-row w-10/12">
       <div className="flex flex-col justify-between w-fit">
@@ -23,8 +24,8 @@ const EventList = ({ events, ...props }: EventListProps) => {
       </div>
       <div className="w-11/12 stripes mt-3 ml-5 flex flex-row justify-evenly  items-start px-auto">
             {
-                Object.entries(eventsByDay).map(([day, events]) => (
-                    <EventDay key={day} day={Number(day)} events={events} className="-mt-16" />
+                Object.entries(eventsByDay).map(([day, eventos], i) => (
+                    <EventDay key={day} day={Number(day)} events={eventos} color={dayColors[i]} className="-mt-16 w-4/12" />
                 ))
             }
       </div>

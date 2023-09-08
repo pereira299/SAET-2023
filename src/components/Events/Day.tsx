@@ -1,4 +1,6 @@
-const EventDay = ({ day, events, className }: EventDayProps) => {
+import Evento from ".";
+
+const EventDay = ({ day, events, className, color }: EventDayProps) => {
   const dayWeek = new Date(events[0].datetime.start).toLocaleDateString(
     "pt-BR",
     {
@@ -6,8 +8,8 @@ const EventDay = ({ day, events, className }: EventDayProps) => {
     }
   );
 
-  const dayGrid: { id: number | null; title: string | null }[][] = Array.from({
-    length: 30,
+  const dayGrid: DayGridProps[][] = Array.from({
+    length: 15,
   }).map((_, index) =>
     Array.from({ length: 2 }).map((_, index) => {
       return {
@@ -22,10 +24,11 @@ const EventDay = ({ day, events, className }: EventDayProps) => {
     return dateA.getTime() - dateB.getTime();
   });
 
-  const countSpaces = (event: Evento) => {
-    let rows = 1,
+  const countSpaces = (event: EventoProps) => {
+    let rows = 1, right = false,
       cols = 1;
-    const hasParallelEvent = sortedEvents.some((e) => {
+    const parallelEvent = sortedEvents.filter((e) => {
+      if (e.id === event.id) return false;
       const startBetween =
         new Date(e.datetime.start).getTime() >=
           new Date(event.datetime.start).getTime() &&
@@ -39,20 +42,32 @@ const EventDay = ({ day, events, className }: EventDayProps) => {
       return startBetween || endBetween;
     });
 
-    if (!hasParallelEvent) cols++;
+    if (parallelEvent.length === 0) cols++;
+    else {
+      // check if event start after parallel event
+      const startAfter = parallelEvent.filter(
+        (e) =>
+          new Date(e.datetime.start).getTime() <
+          new Date(event.datetime.start).getTime()
+      );
 
+      // check if event has add after parallel event
+      const hasGreaterId = parallelEvent.filter((e) => e.id < event.id);
+      if(startAfter || hasGreaterId) right = true;
+    }
     // one row for each 30 minutes
     rows = Math.ceil(
       (new Date(event.datetime.end).getTime() -
         new Date(event.datetime.start).getTime()) /
-        (1000 * 60 * 30)
+        (1000 * 60 * 60)
     );
 
-    return { rowSpan: rows, colSpan: cols };
+    return { rowSpan: rows, colSpan: cols, right };
   };
 
+  
   const mappedEvents = sortedEvents.map((event, index) => {
-    const { rowSpan, colSpan } = countSpaces(event);
+    const { rowSpan, colSpan, right } = countSpaces(event);
     const dateStart = new Date(event.datetime.start);
     const dateEnd = new Date(event.datetime.end);
     // get hour of event start
@@ -62,20 +77,21 @@ const EventDay = ({ day, events, className }: EventDayProps) => {
     // get hour of event end
     let rowEnd = rowStart + rowSpan;
     // set event in grid
-    for (let i = rowStart; i < rowEnd; i++) {
-      if (dayGrid[i][0].id === null) {
-        dayGrid[i][0] = {
-          id: Number(event.id) || index,
-          title: event.title,
-        };
-      } else {
-        dayGrid[i][1] = {
-          id: Number(event.id) || index,
-          title: event.title,
-        };
-      }
+    if (dayGrid[rowStart][0].id === null) {
+      dayGrid[rowStart][0] = {
+        id: Number(event.id) || index,
+        title: event.title,
+      };
+      dayGrid[rowStart][0].rowSpan = rowSpan;
+      dayGrid[rowStart][0].colSpan = colSpan;
+    } else {
+      dayGrid[rowStart][1] = {
+        id: Number(event.id) || index,
+        title: event.title,
+      };
+      dayGrid[rowStart][1].rowSpan = rowSpan;
     }
-    console.log(dayGrid);
+    console.log("dayGrid", dayGrid);
   });
 
   return (
@@ -85,21 +101,25 @@ const EventDay = ({ day, events, className }: EventDayProps) => {
         <br />
         {dayWeek}
       </p>
-      <table className="border-separate border-spacing-2">
-        <tbody>
+      <table className="border-separate border-spacing-1 h-[74vh] mt-[3.3rem] w-[35vw] ml-14 absolute max-w-[20vw]">
+        <thead className="h-0">
+          <tr>
+            <th className="h-0"></th>
+            <th className="h-0"></th>
+          </tr>
+        </thead>
+        <tbody className="">
           {dayGrid.map((col, index) => (
-            <tr key={index}>
-              {col.map((item, i) => (
+            <tr key={index} className="h-[3.4%]">
+              {col.map((item, i, arr) => (
                 <>
-                    {item.id !== null && (
-                        <td
-                            key={i}
-                            className="bg-orange-700 text-white font-bold text-center px-3 rounded-lg text-sm"
-                            
-                        >
-                            {item.title}
-                        </td>
-                    )}
+                  {item.id !== null ? (
+                    <Evento key={item.id} {...item} color={color} />
+                  ) : i === 1 && arr[0].colSpan === 2 ? (
+                    false
+                  ) : (
+                    <td></td>
+                  )}
                 </>
               ))}
             </tr>
