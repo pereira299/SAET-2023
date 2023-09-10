@@ -18,8 +18,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR">
-      <body className={`${montserrat.className} bg-gray-900 min-w-full min-h-screen overflow-x-hidden`}>{children}</body>
+    <html lang="pt-BR" className='y-mandatory scroll-smooth'>
+      <body className={`${montserrat.className} bg-gray-900 min-w-full min-h-screen overflow-x-hidden scroll-smooth snap-mandatory y-mandatory`}>{children}</body>
     </html>
   )
 }

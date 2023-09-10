@@ -91,7 +91,6 @@ const EventDay = ({ day, events, className, color }: EventDayProps) => {
       };
       dayGrid[rowStart][1].rowSpan = rowSpan;
     }
-    console.log("dayGrid", dayGrid);
   });
 
   return (
