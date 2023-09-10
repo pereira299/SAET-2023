@@ -7,9 +7,7 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <main>
-      <Welcome />
-      <Calendar />
-      <Products />
+      <ComingSoon />
     </main>
   )
 }
