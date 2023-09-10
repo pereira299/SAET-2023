@@ -3,10 +3,11 @@
 @tailwind utilities;
 
 
+
 #welcome, #coming-soon {
   background-image: url('/images/line.png'), url('/images/square-2.svg');
-  background-position: 0vw -1vw, 87vw 35vw;
-  background-size: auto, 20vw;
+  background-position: 0vw -1vw, 87vw 75vh;
+  background-size: 20vw, 20vw;
   background-repeat: no-repeat;
 }
 
@@ -16,6 +17,117 @@
   background-size: 20vw, 25vw;
   background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 1200px) {
+  #welcome, #coming-soon {
+    background-size: 20vw, 25vw;
+    background-position: 0vw -1vw, 84vw 75vh;
+  }
+  #calendar {
+    background-size: 25vw, 35vw;
+    background-position: 84vw -8vw, -15vw 70vh;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  #welcome, #coming-soon {
+    background-size: 20vw, 25vw;
+    background-position: 0vw -1vw, 84vw 80vh;
+  }
+  #calendar {
+    background-size: 25vw, 35vw;
+    background-position: 84vw -8vw, -15vw 75vh;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #welcome, #coming-soon {
+    background-size: 20vw, 28vw;
+    background-position: 0vw -1vw, 82vw 82vh;
+  }
+  #calendar {
+    background-size: 28vw, 40vw;
+    background-position: 82vw -8vw, -15vw 80vh;
+  }
+}
+ 
+@media screen and (max-width: 640px) {
+  #welcome, #coming-soon {
+    background-size: 25vw, 30vw;
+    background-position: 0vw -1vw, 80vw 82vh;
+  }
+  #calendar {
+    background-size: 30vw, 40vw;
+    background-position: 80vw -8vw, -15vw 80vh;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  #welcome, #coming-soon {
+    background-size: 30vw, 35vw;
+    background-position: 0vw -1vw, 75vw 82vh;
+  }
+  #calendar {
+    background-size: 35vw, 40vw;
+    background-position: 75vw -8vw, -15vw 80vh;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #welcome, #coming-soon {
+    background-size: 35vw, 40vw;
+    background-position: 0vw -1vw, 75vw 82vh;
+  }
+  #calendar {
+    background-size: 40vw, 50vw;
+    background-position: 75vw -8vw, -15vw 80vh;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  #welcome, #coming-soon {
+    background-size: 35vw, 45vw;
+    background-position: 0vw -1vw, 70vw 82vh;
+  }
+  #calendar {
+    background-size: 45vw, 55vw;
+    background-position: 70vw -15vw, -20vw 80vh;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  #welcome, #coming-soon {
+    background-size: 35vw, 55vw;
+    background-position: 0vw -1vw, 65vw 82vh;
+  }
+  #calendar {
+    background-size: 55vw, 60vw;
+    background-position: 65vw -25vw, -25vw 80vh;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #welcome, #coming-soon {
+    background-size: 40vw, 60vw;
+    background-position: 0vw -1vw, 65vw 82vh;
+  }
+  #calendar {
+    background-size: 60vw, 60vw;
+    background-position: 65vw -25vw, -25vw 85vh;
+  }
+}
+
+@media screen and (max-width: 295px) {
+  #welcome, #coming-soon {
+    background-size: 40vw, 65vw;
+    background-position: 0vw -1vw, 65vw 82vh;
+  }
+  #calendar {
+    background-size: 65vw, 60vw;
+    background-position: 65vw -30vw, -25vw 85vh;
+  }
+}
+
 
 section {
   min-width: 100vw;
@@ -33,6 +145,12 @@ section {
 }
 
 
+@media screen and (max-width: 1024px) {
+  .stripes {
+    background-position: center 20%;
+    background-clip: content-box, border-box;
+  }
+}
 .x-mandatory {
   scroll-snap-type: x mandatory;
 }
@@ -71,4 +189,8 @@ section {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(26, 38, 63)
+}
+
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
 }

@@ -65,9 +65,9 @@ const Products = () => {
   return (
     <section id="products" className="p-5 flex flex-col items-center">
       <Label text="Produtos" />
-      <ul className="flex flex-row justify-between flex-wrap w-10/12 mt-20 items-center h-[50vh]">
+      <ul className="flex flex-row justify-between flex-wrap my-auto w-10/12 mt-5 md:mt-10 lg:mt-20 items-center h-[50vh]">
         {products.map((product, i) => (
-          <li key={product.id} className="w-3/12">
+          <li key={product.id} className="w-6/12 sm:w-5/12 lg:w-3/12">
             <CardProduct product={product} color={productColors[i % 4]} />
           </li>
         ))}

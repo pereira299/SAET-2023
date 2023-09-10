@@ -25,7 +25,8 @@ const EventDay = ({ day, events, className, color }: EventDayProps) => {
   });
 
   const countSpaces = (event: EventoProps) => {
-    let rows = 1, right = false,
+    let rows = 1,
+      right = false,
       cols = 1;
     const parallelEvent = sortedEvents.filter((e) => {
       if (e.id === event.id) return false;
@@ -53,7 +54,7 @@ const EventDay = ({ day, events, className, color }: EventDayProps) => {
 
       // check if event has add after parallel event
       const hasGreaterId = parallelEvent.filter((e) => e.id < event.id);
-      if(startAfter || hasGreaterId) right = true;
+      if (startAfter || hasGreaterId) right = true;
     }
     // one row for each 30 minutes
     rows = Math.ceil(
@@ -65,7 +66,6 @@ const EventDay = ({ day, events, className, color }: EventDayProps) => {
     return { rowSpan: rows, colSpan: cols, right };
   };
 
-  
   const mappedEvents = sortedEvents.map((event, index) => {
     const { rowSpan, colSpan, right } = countSpaces(event);
     const dateStart = new Date(event.datetime.start);
@@ -94,13 +94,13 @@ const EventDay = ({ day, events, className, color }: EventDayProps) => {
   });
 
   return (
-    <div className={`flex flex-col ${className}`}>
+    <div className={`flex flex-col ${className} snap-center`}>
       <p className="text-white font-bold text-center uppercase">
         {day}/09
         <br />
         {dayWeek}
       </p>
-      <table className="border-separate border-spacing-1 h-[74vh] mt-[3.3rem] w-[35vw] ml-14 absolute max-w-[20vw]">
+      <table className="border-separate border-spacing-1 h-[74vh] mt-3 lg:mt-2 w-[70vw] lg:w-[25vw] xl:w-[20vw] mx-2 2xs:mx-5 xs:mx-10 sm:mx-16 lg:ml-10 xl:ml-14">
         <thead className="h-0">
           <tr>
             <th className="h-0"></th>

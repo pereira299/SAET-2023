@@ -15,6 +15,10 @@ const config: Config = {
         stripes:
           "linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 12.5%, transparent 12.5%, transparent)",
       },
+      screens: {
+        '2xs': "320px",
+        'xs': "475px",
+      }
     },
   },
   plugins: [],

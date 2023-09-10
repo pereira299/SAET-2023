@@ -3,7 +3,7 @@ import Image from "next/image"
 
 const CardProduct = ({ product, color }: ProductProps) => {
     return (
-        <div className={`border-4 ${color} w-8/12 mx-auto mt-5 rounded-2xl`}>
+        <div className={`border-4 ${color} w-10/12 sm:w-7/12 lg:w-8/12 mx-auto mt-5 rounded-2xl`}>
             <Image
                 src={product.image}
                 alt={product.title}
