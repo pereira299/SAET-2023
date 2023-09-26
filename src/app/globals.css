@@ -4,7 +4,7 @@
 
 
 
-#welcome, #coming-soon {
+#welcome, #coming-soon, .bg-shape {
   background-image: url('/images/line.png'), url('/images/square-2.svg');
   background-position: 0vw -1vw, 87vw 75vh;
   background-size: 20vw, 20vw;
@@ -133,6 +133,7 @@ section {
   min-width: 100vw;
   min-height: 100vh;
   scroll-snap-align: start;
+  padding-top: 5rem;
 }
 
 .parallelogram {
