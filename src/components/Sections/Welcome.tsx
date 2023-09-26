@@ -20,9 +20,9 @@ const Welcome = () => {
             <br /> de Out
           </h4>
         </div>
-        <Button className="bg-orange-700 uppercase font-bold p-3 text-white text-xl mt-5 w-11/12 sm:w-8/12 md:w-6/12 lg:w-2/12">
+        <a href="#calendar" className="bg-orange-700 text-center uppercase font-bold p-3 text-white text-xl mt-5 w-11/12 sm:w-8/12 md:w-6/12 lg:w-2/12">
           saiba mais
-        </Button>
+        </a>
         <div className="w-3/12"></div>
       </div>
     </section>
