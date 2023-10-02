@@ -6,6 +6,7 @@ const nextConfig = {
     },
     env: {
         DATO_CMS_API_KEY: process.env.DATO_CMS_API_KEY,
+        BASE_URL: process.env.BASE_URL,
     }
 }
 

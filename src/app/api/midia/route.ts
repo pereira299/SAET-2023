@@ -2,12 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import DatoCMS from "@/services/datocms";
 
 const query = `{
-    allUploads {
-        id
-        url
-        tags
-        filename
-        alt
+    allUploads(filter: {tags: {eq: "midia"}}) {
+      height
+      width
+      url
+      title
+      tags
+      id
+      filename
+      alt
     }
   }
 `;
