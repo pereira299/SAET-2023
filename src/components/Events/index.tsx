@@ -1,10 +1,15 @@
 const Evento = (props: DayGridProps) => {
   return (
-    <th rowSpan={props.rowSpan} colSpan={props.colSpan}>
-      <div className={`${props.color ?? 'bg-orange-700'} cursor-pointer hover:brightness-75 transition-all text-white w-full h-full font-bold text-left rounded-lg text-sm xs:text-md md:text-sm flex flex-col justify-center items-center`}>
-        {props.title}
-      </div>
-    </th>
+    <td
+      rowSpan={props.rowSpan}
+      colSpan={props.colSpan}
+      className={`${
+        props.color ?? "bg-orange-700"
+      } p-2 cursor-pointer hover:brightness-75 text-sm lg:text-[0.6rem] transition-all text-center text-white font-bold rounded-lg`}
+      onClick={() => props.onClick?.(props.id || 0)}
+    >
+      {props.children}
+    </td>
   );
 };
 

@@ -47,14 +47,11 @@ const datoCmsApi = async (
     );
 
     if (res.data.errors) {
-      console.error(res.data.errors);
       throw new Error("Failed to fetch API");
     }
 
     return res.data.data;
   } catch (e) {
-    console.log(query);
-    console.error(e);
     throw new Error("Failed to fetch API");
   }
 };

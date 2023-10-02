@@ -5,6 +5,18 @@ interface EventoProps {
     start: string;
     end: string;
   }
+  description?: string;
+  local?: string;
+  category?: string;
+  ministrante?: {
+    id: number;
+    name: string;
+    photo: {
+      url: string;
+      id: string;
+      alt: string;
+    }
+  }
 }
 
 interface EventListProps {
@@ -21,8 +33,9 @@ interface EventDayProps {
 
 interface DayGridProps {
     id: number | null,
-    title: string | null,
+    children: React.ReactNode
     rowSpan?: number,
     colSpan?: number
     color?: string
+    onClick?: (id: number) => void
 }

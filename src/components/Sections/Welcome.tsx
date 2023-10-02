@@ -15,7 +15,7 @@ const Welcome = () => {
         <div className="flex-col -mt-20 w-full sm:w-8/12 md:w-6/12 lg:w-3/12">
           <Image src={"/images/arrow.svg"} alt="Seta" width={120} height={40} />
           <h4 className="uppercase text-cyan-600 font-bold text-5xl ml-1">
-            De <b className="text-orange-700">25</b> a{" "}
+            De <b className="text-orange-700">23</b> a{" "}
             <b className="text-orange-700">27</b>
             <br /> de Out
           </h4>

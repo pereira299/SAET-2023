@@ -4,6 +4,13 @@
 
 
 
+.bg-shape-circle {
+  background-image: url('/images/circle-2.svg');
+  background-position: left top;
+  background-size: 110%;
+  background-repeat: no-repeat;
+}
+
 #welcome, #coming-soon, .bg-shape {
   background-image: url('/images/line.png'), url('/images/square-2.svg');
   background-position: 0vw -1vw, 87vw 75vh;
@@ -141,7 +148,7 @@ section {
 }
 
 .stripes {
-  background-image: linear-gradient(180deg, #ffffff33 0.5vh, #99999900 0.5vh, #99999900 10vh, #ffffff33 10vh, #ffffff33 10vh, #99999900 10.5vh, #99999900 80vh);
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 40px, #ededed65 40px, rgba(0, 0, 0, 1) 41px );
   background-size: 19vh 19vh;
 }
 
@@ -194,4 +201,28 @@ section {
 
 .invisible-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.textfield label {
+  position: absolute;
+  margin-left: 0.87rem;
+  margin-top: 0.5rem;
+  background-color: #1e293b;
+  width: max-content;
+  z-index: 10;
+}
+
+.textfield:has(> input:focus) label, .textfield:has(> input:not(:placeholder-shown)) label,
+.textfield:has(> div > input:focus) label, .textfield:has(> div > input:not(:placeholder-shown)) label {
+  margin-top: -1.5rem;
+  margin-left: 1.5rem;
+  font-size: 0.75rem;
+  background-color: transparent;
+  color: #fff;
+}
+
+.textfield:has(> input:focus) label.black, .textfield:has(> input:not(:placeholder-shown)) label.black,
+.textfield:has(> div > input:focus) label.black, .textfield:has(> div > input:not(:placeholder-shown)) label.black {
+  color: #000;
+  font-weight: 600;
 }

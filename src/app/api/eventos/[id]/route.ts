@@ -8,6 +8,11 @@ const query = (id: number | string) => `{
       ministranteField {
         name
         id
+        photoUrl {
+            url
+            id
+            alt
+        }
       }
       category
       datetimeEnd
@@ -18,6 +23,7 @@ const query = (id: number | string) => `{
 
 export const GET = async (req: NextRequest, {params}: {params: {id: string}}) => {   
     const {id} = params;
+    console.log(id)
     if(!id) return new Response('Missing id', {
         status: 400,
     })
@@ -38,7 +44,8 @@ export const GET = async (req: NextRequest, {params}: {params: {id: string}}) =>
         title: result.evento.title,
         ministrante: {
             id: Number.parseInt(result.evento.ministranteField.id),
-            name: result.evento.ministranteField.name
+            name: result.evento.ministranteField.name,
+            photo: result.evento.ministranteField.photoUrl
         },
         category: Number.parseInt(result.evento.category),
         datetime: {

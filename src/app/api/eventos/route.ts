@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import DatoCMS from '@/services/datocms'
 
 const query = `{
-    allEventos {
+    allEventos(first: 100) {
       id
       title
       ministranteField {
@@ -18,7 +18,6 @@ const query = `{
 
 export const GET = async (req: NextRequest, res: NextResponse) => {   
     const result = await DatoCMS.get(query);
-
     return NextResponse.json(result.allEventos.map((evento: any) => {
         return {
             id: Number.parseInt(evento.id),
