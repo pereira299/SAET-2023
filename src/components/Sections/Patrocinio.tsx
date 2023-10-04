@@ -17,7 +17,7 @@ const Patrocinio = ({ patrocinios }: { patrocinios: PatrocinioProps[] }) => {
       <Label text="Patrocinadores" className="" />
       <ul className="flex flex-row w-11/12 justify-between flex-wrap items-center mt-20">
         {patrocinios.map((patrocinio) => (
-          <li key={patrocinio.id} className="w-5/12">
+          <li key={patrocinio.id} className="w-5/12 lg:w-3/12">
             <Image
               src={patrocinio.img.url}
               alt={patrocinio.img.title}

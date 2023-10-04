@@ -13,9 +13,9 @@ const EventList = ({ events, ...props }: EventListProps) => {
     <div className="h-[75vh] lg:h-[71vh] mt-16 flex flex-row w-full lg:w-11/12 xl:w-[90vw]">
       <div className="lg:flex flex-col justify-between w-fit mt-12 lg:mt-0 h-full lg:h-auto  hidden">
         <div className="text-white text-xl lg:text-md font-bold text-right">8h</div>
-        <div className="text-white text-xl lg:text-md font-bold text-right lg:-mt-7">14h</div>
-        <div className="text-white text-xl lg:text-md font-bold text-right mt-40 lg:mt-5">18h</div>
-        <div className="text-white text-xl lg:text-md font-bold text-right">23h</div>
+        <div className="text-white text-xl lg:text-md font-bold text-right mt-10">14h</div>
+        <div className="text-white text-xl lg:text-md font-bold text-right mt-40 lg:mt-32">18h</div>
+        <div className="text-white text-xl lg:text-md font-bold text-right">22h</div>
       </div>
       <div className="hidden w-[90vw] h-[76vh] stripes pt-20 invisible-scrollbar lg:pt-0 lg:mt-3 ml-5 lg:flex flex-row lg:justify-evenly overflow-y-hidden overflow-x-auto x-mandatory items-start">
         <div className="absolute -mt-14 flex flex-row w-[90vw]">

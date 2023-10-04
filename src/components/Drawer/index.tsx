@@ -19,7 +19,7 @@ const Drawer = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
             <a href="/patrocinio.pdf" target="_blank">Seja um patrocinador</a>
           </li>
           <li>
-            <a href="inscricao" className="px-3 py-2 bg-orange-700 font-bold">
+            <a href="/inscricao" target="_blank" className="px-3 py-2 bg-orange-700 font-bold">
               Inscreva-se
             </a>
           </li>

@@ -32,7 +32,7 @@ const Header = (props: HeaderProps) => {
                 </a>
             </li>
             <li>
-                <a href="inscricao" className="px-3 py-2 bg-orange-700 font-bold">
+                <a href="/inscricao" target="_blank" className="px-3 py-2 bg-orange-700 font-bold">
                     Inscreva-se
                 </a>
             </li>
