@@ -71,7 +71,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
     status: "published",
   });
 
-  const coursesList = form.get("courses")?.split(",");
+  const coursesList = form.get("courses")?.toString().split(",") || [];
   console.log(coursesList);
   const price = 40 + (coursesList.length - 3) * 5;
   const ticket = await DatoCMS.create({
