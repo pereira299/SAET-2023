@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import DatoCMS from '@/services/datocms'
 
 const query = `{
-    allEventos(filter: {category: {eq: "2"}}) {
+    allEventos(filter: {category: {notIn: ["1", "3"]}}, first: "100") {
       id
       title
       ministranteField {

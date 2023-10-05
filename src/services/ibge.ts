@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export interface Estado {
     id: number;
     sigla: string;
@@ -33,9 +35,9 @@ export interface Municipio {
 }
 
 export default class IBGE {
-    static async getStates(): Promise<Estado[]> {
-        const response = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados');
-        return response.json();
+    public static async getStates(): Promise<Estado[]> {
+        const response = await axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados');
+        return response.data;
     }
     
     static async getCities(uf: string): Promise<Municipio[]> {
