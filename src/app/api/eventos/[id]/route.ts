@@ -17,6 +17,7 @@ const query = (id: number | string) => `{
       category
       datetimeEnd
       datetimeStart
+      local
     }
   }
 `
@@ -47,6 +48,7 @@ export const GET = async (req: NextRequest, {params}: {params: {id: string}}) =>
             name: result.evento.ministranteField.name,
             photo: result.evento.ministranteField.photoUrl
         },
+        local: result.evento.local
         category: Number.parseInt(result.evento.category),
         datetime: {
             start: result.evento.datetimeStart,
