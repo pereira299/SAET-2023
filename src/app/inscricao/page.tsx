@@ -1,7 +1,7 @@
 "use client";
 import Label from "@/components/Label";
 import api from "@/services/api";
-import InputMask from "react-input-mask";
+import InputMask  from "react-input-mask";
 import IBGE, { Estado, Municipio } from "@/services/ibge";
 import { isCPF } from "validation-br"
 import {
@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 import { ReactNode, useEffect, useState } from "react";
 import { Loader } from "lucide-react";
+
 
 const Subscribe = () => {
   const [estados, setEstados] = useState<Estado[]>([]);
