@@ -59,6 +59,7 @@ export const POST = async (req: NextRequest, res: NextResponse) => {
       cidade: form.get("cidade"),
       logradouro: form.get("logradouro"),
       num: form.get("num"),
+      fone: form.get("fone"),
     },
     relationships: {
       item_type: {
