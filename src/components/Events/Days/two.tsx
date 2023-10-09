@@ -110,7 +110,7 @@ const DayTwo = ({ onSelect }: { onSelect: (id: number) => void }) => {
             color="bg-[#CE875A]"
             onClick={(id) => onSelect(id)}
           >
-            Sem Titulo
+            Placas de Circuito Impresso: como fazer a sua
           </Evento>
         </tr>
         <tr></tr>
@@ -193,7 +193,7 @@ const DayTwo = ({ onSelect }: { onSelect: (id: number) => void }) => {
             color="bg-[#CE875A]"
             onClick={(id) => onSelect(id)}
           >
-            Sem titulo
+            Dia a dia do cientista de dados
           </Evento>
         </tr>
         <tr></tr>

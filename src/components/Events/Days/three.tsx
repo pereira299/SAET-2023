@@ -27,9 +27,7 @@ const DayThree = ({ onSelect }: { onSelect: (id: number) => void }) => {
       </thead>
       <tbody>
         <tr>
-          <Evento onClick={(id) => onSelect(id)} id={1} rowSpan={3}>
-            Sem titulo
-          </Evento>
+          <td></td>
           <td></td>
           <Evento onClick={(id) => onSelect(id)} id={196993187} rowSpan={8}>
             Introdução a microcontroladores: uma visão prática
@@ -37,8 +35,10 @@ const DayThree = ({ onSelect }: { onSelect: (id: number) => void }) => {
         </tr>
         <tr>
           <td></td>
+          <td></td>
         </tr>
         <tr>
+          <td></td>
           <td></td>
         </tr>
         <tr>
@@ -83,18 +83,20 @@ const DayThree = ({ onSelect }: { onSelect: (id: number) => void }) => {
           <td></td>
         </tr>
         <tr>
-          <Evento onClick={(id) => onSelect(id)} id={1} rowSpan={3}>
-            Sem titulo
-          </Evento>
+          <td></td>
           <Evento onClick={(id) => onSelect(id)} id={196993206} rowSpan={8}>
             Interfaces responsivas: Do celular ao desktop
           </Evento>
           <Evento onClick={(id) => onSelect(id)} id={1} rowSpan={8}>
-            Sem titulo
+            Placas de Circuito Impresso: como fazer a sua
           </Evento>
         </tr>
-        <tr></tr>
-        <tr></tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
         <tr>
           <td></td>
         </tr>
@@ -145,15 +147,15 @@ const DayThree = ({ onSelect }: { onSelect: (id: number) => void }) => {
           <td></td>
         </tr>
         <tr>
-          <Evento onClick={(id) => onSelect(id)} id={1} rowSpan={3}>
-            sem titulo
-          </Evento>
+          <td></td>
           <td></td>
         </tr>
         <tr>
           <td></td>
+          <td></td>
         </tr>
         <tr>
+          <td></td>
           <td></td>
         </tr>
       </tbody>

@@ -166,14 +166,7 @@ const DayOne = ({ onSelect }: { onSelect: (id: number) => void }) => {
           </Evento>
         </tr>
         <tr>
-          <Evento
-            id={1}
-            rowSpan={2}
-            color="bg-cyan-700"
-            onClick={(id) => onSelect(id)}
-          >
-            Sem titulo
-          </Evento>
+          <td></td>
           <Evento
             id={195204008}
             rowSpan={5}
@@ -191,8 +184,11 @@ const DayOne = ({ onSelect }: { onSelect: (id: number) => void }) => {
             Introdução a computação cientifica com Google Colab e Numpy
           </Evento>
         </tr>
-        <tr></tr>
         <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
           <td></td>
         </tr>
         <tr>

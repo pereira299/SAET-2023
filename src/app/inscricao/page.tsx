@@ -14,7 +14,7 @@ import {
   ThemeProvider,
   createTheme,
 } from "@mui/material";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import { Loader } from "lucide-react";
 
 
@@ -55,6 +55,12 @@ const Subscribe = () => {
     }
   };
 
+  const total = useMemo(() => {
+    if(selectedEvents.length <= 3) return 40;
+
+    const count = selectedEvents.length -3;
+    return 40 + (count * 5);
+  }, [selectedEvents])
   useEffect(() => {
     getEstados();
   }, []);
@@ -71,13 +77,13 @@ const Subscribe = () => {
 
   const save = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(selectedEvents.length < 3) return alert("Selecione pelo menos 3 cursos");
     const data = new FormData(e.currentTarget);
     data.append("courses", selectedEvents.join(","));
     const cpf = data.get("cpf")?.toString().replace(/\D/g, "");
+    const fone = data.get("fone")?.toString().replace(/\D/g, "");
     if(cpf?.length !== 11) return alert("CPF inválido");
     if(!isCPF(cpf)) return alert("CPF inválido");
-    
+    if(fone?.length !== 11) return alert("Telefone inválido");
     setLoad(true);
     //form data to json
     const json: {[key:string]: any} = {};
@@ -105,7 +111,7 @@ const Subscribe = () => {
         >
           <TextField
             label="Nome"
-            className="w-full lg:w-5/12"
+            className="w-full"
             variant="outlined"
             name="nome"
             required
@@ -121,9 +127,23 @@ const Subscribe = () => {
           <TextField
             label="R.A."
             variant="outlined"
-            className="w-full lg:w-2/12"
+            className="w-full lg:w-3/12"
             name="ra"
           />
+          <InputMask
+            mask="(99) 9 9999-9999"
+            maskChar={null}
+            className="w-full lg:w-4/12"
+            
+          >
+            {() => <TextField
+              label="Telefone"
+              variant="outlined"
+              className="w-full lg:w-4/12"
+              name="fone"
+              required
+            />}
+          </InputMask>
           <InputMask
             mask="999.999.999-99"
             maskChar={null}
@@ -195,9 +215,8 @@ const Subscribe = () => {
             <p className="text-white w-full font-bold">
               Selecione os cursos que deseja fazer
             </p>
-            <p className="text-white w-full text-sm">*Minimo 3 cursos</p>
             <p className="text-white w-full text-sm">
-              **3 cursos gratuitos, acima disso será cobrado um valor adicional
+              *3 cursos inclusos no ingresso, acima disso será cobrado um valor adicional
             </p>
           </span>
           {events.map((elem: EventoProps) => (
@@ -217,10 +236,12 @@ const Subscribe = () => {
               onClick={() => toggleEventSelection(elem.id.toString())}
             />
           ))}
+
+          <p className="w-full text-white text-3xl">Total: {Intl.NumberFormat("pt-BR", {style:"currency", currency:"BRL"}).format(total)}</p>
           <button
             type="submit"
             disabled={load}
-            className="bg-slate-800 flex flex-row disabled:opacity-75 hover:bg-slate-800 text-white w-full text-center py-5 font-bold px-4 rounded"
+            className="bg-slate-800 flex flex-row justify-center disabled:opacity-75 hover:bg-slate-800 text-white w-full text-center py-5 font-bold px-4 rounded"
           >
             {load ? <>
                 <Loader size={24} className="text-white animate-spin"/>
