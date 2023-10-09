@@ -7,7 +7,7 @@ const DayFour = ({ onSelect }: { onSelect: (id: number) => void }) => {
       <tbody>
         <tr style={{ height: "10px" }}>
           <Evento id={1} color="bg-cyan-700" rowSpan={9}>
-            Warmap Hackathon
+            Warmup da Maratona de programação
           </Evento>
           <Evento id={1} color="bg-cyan-700" rowSpan={9}>
             RPG: one shot!
@@ -47,7 +47,7 @@ const DayFour = ({ onSelect }: { onSelect: (id: number) => void }) => {
         </tr>
         <tr style={{ height: "10px" }}>
           <Evento id={1} color="bg-cyan-700" rowSpan={9}>
-            Hackathon
+            Maratona de programação
           </Evento>
           <Evento id={1} color="bg-cyan-700" rowSpan={9}>
             RPG: one shot!
