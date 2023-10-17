@@ -8,6 +8,8 @@ const montserrat = Montserrat({
   subsets: ["latin-ext"],
 })
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'SAET - Semana Acadêmica da Engenharia e Tecnologia',
   description: 'A Semana Acadêmica da Engenharia e Tecnologia é um evento anual organizado por alunos da Universidade Tecnologica Federal do Paraná em Toledo - PR, com o objetivo de promover a integração entre os alunos e a comunidade acadêmica, além de trazer temas atuais e relevantes para discussão.',
